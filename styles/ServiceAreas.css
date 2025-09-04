@@ -1,0 +1,247 @@
+.service-areas {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.service-areas h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+  margin-bottom: 3rem;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.map-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.map-visual {
+  position: relative;
+  height: 600px;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.map-visual::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(1, 87, 155, 0.2);
+  z-index: 1;
+}
+
+.map-visual h3 {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  color: white;
+  font-size: 1.8rem;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+  z-index: 2;
+}
+
+.area-marker {
+  position: absolute;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+.marker {
+  font-size: 2.5rem;
+  background: #01579b;
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid white;
+  box-shadow: 0 6px 20px rgba(1, 87, 155, 0.4);
+  animation: pulse 2s infinite;
+}
+
+.area-name {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  color: #01579b;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.area-marker:hover .area-name,
+.area-marker.active .area-name {
+  opacity: 1;
+}
+
+.area-marker:hover,
+.area-marker.active {
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+.area-marker:hover .marker,
+.area-marker.active .marker {
+  background: #0277bd;
+  box-shadow: 0 8px 25px rgba(2, 119, 189, 0.6);
+}
+
+.area-details {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  animation: slideUp 0.4s ease;
+  z-index: 20;
+}
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #f44336;
+  color: white;
+  border: 2px solid white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 999;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  font-family: Arial, sans-serif;
+}
+
+.close-btn:hover {
+  background: #f0f0f0;
+  color: #ff0000;
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+.area-details h4 {
+  color: #01579b;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.area-details p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.book-btn {
+  background: linear-gradient(45deg, #01579b, #0277bd);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.book-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(1, 87, 155, 0.4);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .map-visual {
+    height: 400px;
+  }
+  
+  .service-areas h2 {
+    font-size: 2rem;
+  }
+  
+  .map-visual h3 {
+    font-size: 1.4rem;
+  }
+  
+  .area-details {
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    padding: 1.5rem;
+  }
+  
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+    font-size: 16px;
+  }
+  
+  .marker {
+    width: 40px;
+    height: 40px;
+    font-size: 2rem;
+  }
+}
